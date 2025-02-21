@@ -15,9 +15,7 @@ export class Order {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne(() => Customer, (customer) => customer.orders, {
-    cascade: true,
-  })
+  @ManyToOne(() => Customer, (customer) => customer.orders)
   customer: Customer;
 
   @Column({
@@ -37,8 +35,6 @@ export class Order {
   @CreateDateColumn()
   createdAt: Date;
 
-  @OneToMany(() => OrderItems, (orderItem) => orderItem.order, {
-    cascade: ['update'],
-  })
+  @OneToMany(() => OrderItems, (orderItem) => orderItem.order)
   orderItems: OrderItems[];
 }

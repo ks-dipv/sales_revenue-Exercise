@@ -13,9 +13,7 @@ export class Product {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne(() => Category, (category) => category.products, {
-    cascade: true,
-  })
+  @ManyToOne(() => Category, (category) => category.products)
   category: Category;
 
   @Column({

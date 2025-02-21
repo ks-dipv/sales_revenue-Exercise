@@ -3,7 +3,6 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AnalysisService } from './common/services/analysis.service';
 import environmentValidation from './config/environment.validation';
 import databaseConfig from './config/database.config';
 import appConfig from './config/app.config';
@@ -40,6 +39,6 @@ const ENV = process.env.NODE_ENV;
     }),
   ],
   controllers: [AppController],
-  providers: [AppService, AnalysisService],
+  providers: [AppService],
 })
 export class AppModule {}
