@@ -6,10 +6,16 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import environmentValidation from './config/environment.validation';
 import databaseConfig from './config/database.config';
 import appConfig from './config/app.config';
+import { Customer } from './common/entities/customer.entity';
+import { Order } from './common/entities/order.entity';
+import { OrderItems } from './common/entities/order-item.entity';
+import { Product } from './common/entities/product.entity';
+import { Category } from './common/entities/category.entity';
 const ENV = process.env.NODE_ENV;
 
 @Module({
   imports: [
+    TypeOrmModule.forFeature([Customer, Order, OrderItems, Product, Category]),
     ConfigModule.forRoot({
       isGlobal: true,
       // envFilePath: ['.env.development'],
